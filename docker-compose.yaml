@@ -1,0 +1,18 @@
+version: "3.1"
+services: 
+  db:
+    image: "postgres"
+    container_name: database 
+    ports: 
+      - "5432:5432"
+    environment: 
+      POSTGRES_USER: admin
+      POSTGRES_DB: akarina
+      POSTGRES_PASSWORD: akarina
+  db_client:
+        image: dpage/pgadmin4
+        ports: 
+          - "5000:80"
+        environment:
+          PGADMIN_DEFAULT_EMAIL: admin@gmail.com
+          PGADMIN_DEFAULT_PASSWORD: admin

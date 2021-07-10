@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partiels/head.ejs')%>
+
+    <body>
+        <%- include('./partiels/nav.ejs')%>
+            <div class="container-all">
+                <div class="row">
+                    <div class="hero">
+                        <h1 class="hero-title">
+                            Search properties for sale and to rent in Mauritania
+                        </h1>
+                        <div class="search">
+                            <form class="search-form">
+                                <input class="search-input" type="text" placeholder="Property type" name="location" />
+                                <input class="search-input" type="text" placeholder="For sale" name="location" />
+                                <input class="search-input" type="text" placeholder="Location" name="location" />
+                                <button class="search-button" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 listing-card">
+                            <img class="listing-card-image image-size" src="/pexels-photo-259588.jpeg" />
+                            <div class="listing-card-body my-2">
+                                <div class="my-2">
+                                    <span class="listing-card-price"><strong>30000 MRU</strong></span>
+                                </div>
+                                <div class="listing-card-snapshot-container my-2">
+                                    <span>6 <i class="fas fa-bed"></i> </span>
+                                    <span>2 <i class="fas fa-bath"></i> </span>
+                                    <span>1 <i class="fas fa-toilet"></i> </span>
+                                    <span>200 <i class="fas fa-th-large"></i> </span>
+                                </div>
+                                <div class=" my-2">
+                                    <span><strong>House</strong></span>
+                                </div>
+                                <div class="listing-card-contact-container my-2">
+                                    <button class="listing-card-call-button">
+                                        <i class="fas fa-phone"></i> Call us
+                                    </button>
+                                    <button class="listing-card-whatssap-button">
+                                        <i class="fab fa-whatsapp"></i> Whatssap
+                                    </button>
+                                </div>
+                                <div class="my-2">
+
+                                    <a href="#">
+                                        <button class="listing-card-details-button">Details</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%- include('./partiels/footer.ejs')%>
+    </body>
+
+</html>

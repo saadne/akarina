@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+:root {
+  --global-font-family: Verdana, sans-serif;
+  --global-brand-primary-color: #0277bd;
+  --global-input-hover: #b9c4ca;
+  --global-element-padding: 1rem;
+  --global-brand-secondary-color: #fff;
+  --global-font-size: 0.8rem;
+  --global-text-color: #111;
+  --global-primary-title-size: 2rem;
+  --global-secondary-title-size: 1.5rem;
+  --global-color-warning: #e28413;
+  --global-color-danger: #ff6542;
+}
+a{
+  text-decoration: none;
+}
+
+
+/* navbar */
+.navbar {
+  background: var(--global-brand-primary-color);
+  height: 5rem;
+}
+.navbar .navbar-brand {
+  color: var(--global-brand-secondary-color);
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.navbar .nav-item a {
+  text-decoration: none;
+  color: var(--global-brand-secondary-color);
+  font-weight: bolder;
+}
+
+
+.hero {
+  width: 100vw;
+  height: 70vh;
+  background-image: url("city.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* opacity: 0.9; */
+
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  background-color: var(--global-brand-primary-color);
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hero .hero-title {
+  font-size: var(--global-primary-title-size);
+  color: var(--global-text-color);
+  color: #111;
+  font-weight: bold;
+}
+
+.hero .search {
+  border-radius: 3rem;
+  background: var(--global-brand-secondary-color);
+  padding: 1rem 3rem;
+  margin: 3rem 0;
+}
+.hero .search-input {
+  color: var(--global-text-color);
+  outline: none;
+  border: none;
+
+  padding: 0.9rem;
+}
+.hero .search-input:hover {
+  background-color: var(--global-input-hover);
+  color: #000;
+  border-radius: 3rem;
+  padding: 0.9rem;
+}
+.hero .search .search-button {
+  border-radius: 4rem;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--global-brand-primary-color);
+  color: var(--global-brand-secondary-color);
+  font-weight: bold;
+}
+
+/* listing card */
+.listing-card {
+  border-radius: 1rem;
+  border: 2px#fff solid;
+  overflow: hidden;
+  box-shadow: 0.2rem 0.3rem rgb(200, 200, 200);
+  margin-top: 3rem;
+}
+.listing-card .listing-card-image {
+  width: 100%;
+}
+.listing-card .listing-card-body {
+  padding: 0.5rem 0;
+}
+.listing-card .listing-card-price {
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+.listing-card .listing-card-snapshot-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.listing-card .listing-card-contact-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.listing-card .listing-card-whatssap-button {
+  background: #00bfa5;
+  font-weight: bolder;
+  border: none;
+  border-radius: 2rem;
+  color: var(--global-brand-secondary-color);
+  padding: 0.5rem 1rem;
+}
+.listing-card .listing-card-call-button {
+  background: var(--global-brand-primary-color);
+  border: none;
+  border-radius: 2rem;
+  color: var(--global-brand-secondary-color);
+  padding: 0.5rem 1rem;
+  font-weight: bolder;
+}
+.listing-card .listing-card-details-button {
+  background: var(--global-brand-secondary-color);
+  border: 0.3rem var(--global-brand-primary-color) solid;
+  border-radius: 2rem;
+  color: var(--global-text-color);
+  padding: 0.5rem 1rem;
+  font-weight: bolder;
+  display: block;
+  width: 100%;
+}
+.add-container{
+  margin: 6rem 2rem 0 2rem;
+}
+
+.data{
+  display: none;
+}

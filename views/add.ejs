@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partiels/head.ejs')%>
+
+    <body>
+        <%- include('./partiels/nav.ejs')%>
+            <div class="add-container">
+                <h1>Add Property</h1>
+                <div class="form">
+                    <form action="/apartments" , method="POST">
+                        <label for="">Type de properit&eacute;:</label>
+                        <select id="type" name="property_type" class="form-select" aria-label="Default select example">
+                            <option value="APPARTEMENT" selected>APPARTEMENT</option>
+                            <option value="MAISON">MAISON</option>
+                            <option value="TERRIN">TERRAIN</option>
+                            <option value="MAGAZIN">MAGAZIN</option>
+                        </select>
+                        <label for="">Louer ou vendre:</label>
+                        <select class="form-select" name="add_type" aria-label="Default select example">
+                            <option value="LOUER" selected>LOUER</option>
+                            <option value="VENDRE">VENDRE</option>
+                        </select>
+                        <label for="">Type de louer:</label>
+                        <select class="form-select" name="rent_type" aria-label="Default select example">
+                            <option value="PAR MOIS" selected>PAR MOIS</option>
+                            <option value="PAR JOUR">PAR JOUR</option>
+                            <option value="PAR ANNEE">PAR ANNEE</option>
+                        </select>
+                        <label for="">Location:</label>
+                        <select class="form-select" name="region" aria-label="Default select example">
+                            <option value="NOUAKCHOTT OUEST" selected>NOUAKCHOTT OUEST</option>
+                            <option value="NOUAKCHOTT NORD">NOUAKCHOTT NORD</option>
+                            <option value="NOUAKCHOTT SID">NOUAKCHOTT SID</option>
+                        </select>
+                        <label for="">Ville:</label>
+                        <select class="form-select" name="city" aria-label="Default select example">
+                            <option value="TEVRAGHE ZEINA" selected>TEVRAGHE ZEINA</option>
+                            <option value="KSAR">KSAR</option>
+                            <option value="TEYARITE">TEYARIT</option>
+                            <option value="ARAVAT">ARAVAT</option>
+                            <option value="TOUJOUNINE">TOUJOUNINE</option>
+                            <option value="ELMINA">ELMINA</option>
+                        </select>
+                        <label for="">Surface:</label>
+                        <div class="input-group flex-nowrap">
+                            <input type="number" name="surface" class="form-control" placeholder="Surface"
+                                aria-label="Surface" aria-describedby="addon-wrapping">
+                        </div>
+                        <label for="">Prix:</label>
+                        <div class="input-group flex-nowrap">
+                            <input type="number" name="prix" class="form-control" placeholder="Prix" aria-label="Prix"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFileSm" class="form-label">Images:</label>
+                            <input multiple class="form-control form-control-sm" name="images" id="formFileSm"
+                                type="file">
+                        </div>
+
+                        <div class="data" id="APPARTEMENT">
+                            <label for="">Nombre de chambre:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" class="form-control" name="nbr_chambre"
+                                    placeholder="Nombre de chambre" aria-label="Nombre de chambre"
+                                    aria-describedby="addon-wrapping">
+                            </div>
+                            <label for="">Nombre de toillet:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" class="form-control" name="nbr_toillet"
+                                    placeholder="Nombre de toillet" aria-label="Nombre de toillet"
+                                    aria-describedby="addon-wrapping">
+                            </div>
+                            <label for="">Nombre de cuisine:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" name="nbr_cuisine" class="form-control"
+                                    placeholder="Nombre de cuisine" aria-label="Prix" aria-describedby="addon-wrapping">
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" name="has_equipe" type="checkbox" value="1"
+                                    id="flexCheckIndeterminate">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                    has_equipe
+                                </label>
+                            </div>
+                            <label for="">Numero d'&eacute;tage:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" class="form-control" name="nbr_etage"
+                                    placeholder="Nombre d'&eacute;tage" aria-label="Prix"
+                                    aria-describedby="addon-wrapping">
+                            </div>
+                        </div>
+                        <div class="data" id="MAISON">
+                            <label for="">Nombre de chambre:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" class="form-control" placeholder="Nombre de chambre"
+                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                            </div>
+                            <label for="">Nombre de toillet:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" class="form-control" placeholder="Nombre de toillet"
+                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                            </div>
+                            <label for="">Nombre d'&eacute;tage:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" class="form-control" placeholder="Nombre d'&eacute;tage"
+                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                            </div>
+                            <label for="">Nombre de cuisine:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" class="form-control" placeholder="Nombre de cuisine"
+                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                    Avec garage;
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                                <label class="form-check-label" name="equipe" for="flexCheckIndeterminate">
+                                    has_equipe
+                                </label>
+                            </div>
+                        </div>
+                        <div class="data" id="TERRAIN">
+                            <label for="">Longeur:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" class="form-control" placeholder="Nombre de cuisine"
+                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                            </div>
+                            <label for="">Largeur:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" class="form-control" placeholder="Nombre de cuisine"
+                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
+                                    A une titre fonc&eacute;
+                                </label>
+                            </div>
+
+                            <label for="">Papier:</label>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                                    style="height: 100px"></textarea>
+                                <label for="floatingTextarea2">Papier</label>
+                            </div>
+                        </div>
+                        <div class="data" id="MAGAZIN">
+                            <label for="">Longeur:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" class="form-control" placeholder="Nombre de cuisine"
+                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                            </div>
+                            <label for="">Largeur:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" class="form-control" placeholder="Nombre de cuisine"
+                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                            </div>
+                        </div>
+
+                        <label for="">Description:</label>
+                        <div class="form-floating">
+                            <textarea class="form-control" name="description" placeholder="Leave a comment here"
+                                id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Description</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="../js/toglle.js"></script>
+            <%- include('./partiels/footer.ejs')%>
+    </body>
+
+</html>
