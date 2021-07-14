@@ -1,7 +1,8 @@
 const { Router } = require('express')
-const { setApartment } = require('../controllers/apartment.controller')
+const { createApartment } = require('../controllers/apartment.controller')
 const router = Router()
 
-router.post('/', setApartment)
+router.post('/apartment', createApartment)
+
 
 module.exports = router

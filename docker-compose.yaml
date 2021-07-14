@@ -1,18 +1,22 @@
-version: "3.1"
-services: 
-  db:
-    image: "postgres"
-    container_name: database 
-    ports: 
-      - "5432:5432"
-    environment: 
-      POSTGRES_USER: admin
-      POSTGRES_DB: akarina
-      POSTGRES_PASSWORD: akarina
-  db_client:
-        image: dpage/pgadmin4
-        ports: 
-          - "5000:80"
-        environment:
-          PGADMIN_DEFAULT_EMAIL: admin@gmail.com
-          PGADMIN_DEFAULT_PASSWORD: admin
+version: "3.5"
+services:
+  postgres:
+    container_name: postgresql
+    image: "postgres:12"
+    ports:
+      - "${DB_PORT}:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER_NAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      # PGDATA: /var/lib/postgresql/data/pgdata
+    # volumes:
+    #   - ./postgres-data:/var/lib/postgresql/data
+  pg_admin:
+    container_name: pg_admin
+    image: "dpage/pgadmin4"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PG_ADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PG_ADMIN_PASSWORD}
+    ports:
+      - "${PG_ADMIN_PORT}:80"

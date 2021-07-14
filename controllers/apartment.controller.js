@@ -1,3 +1,5 @@
-exports.setApartment = async (req, res) => {
-    console.log(req.body)
+const Apartment = require("../models/apartment.model")
+
+exports.createApartment = async (req, res) => {
+    console.log("apartment")
 }

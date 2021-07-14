@@ -4,15 +4,15 @@
 
     <body>
         <%- include('./partiels/nav.ejs')%>
-            <div class="add-container">
+            <div class="container-all">
                 <h1>Add Property</h1>
                 <div class="form">
-                    <form action="/apartments" , method="POST">
+                    <form action="/houses" , method="POST">
                         <label for="">Type de properit&eacute;:</label>
                         <select id="type" name="property_type" class="form-select" aria-label="Default select example">
                             <option value="APPARTEMENT" selected>APPARTEMENT</option>
                             <option value="MAISON">MAISON</option>
-                            <option value="TERRIN">TERRAIN</option>
+                            <option value="TERRAIN">TERRAIN</option>
                             <option value="MAGAZIN">MAGAZIN</option>
                         </select>
                         <label for="">Louer ou vendre:</label>
@@ -64,6 +64,7 @@
                                     placeholder="Nombre de chambre" aria-label="Nombre de chambre"
                                     aria-describedby="addon-wrapping">
                             </div>
+
                             <label for="">Nombre de toillet:</label>
                             <div class="input-group flex-nowrap">
                                 <input type="number" class="form-control" name="nbr_toillet"
@@ -76,7 +77,7 @@
                                     placeholder="Nombre de cuisine" aria-label="Prix" aria-describedby="addon-wrapping">
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" name="has_equipe" type="checkbox" value="1"
+                                <input class="form-check-input" name="has_equipe" type="checkbox" value="true"
                                     id="flexCheckIndeterminate">
                                 <label class="form-check-label" for="flexCheckIndeterminate">
                                     has_equipe
@@ -84,41 +85,46 @@
                             </div>
                             <label for="">Numero d'&eacute;tage:</label>
                             <div class="input-group flex-nowrap">
-                                <input type="number" class="form-control" name="nbr_etage"
-                                    placeholder="Nombre d'&eacute;tage" aria-label="Prix"
+                                <input type="number" class="form-control" name="numero_etage"
+                                    placeholder="Nombre d'&eacute;tage" aria-label="numero_etage"
                                     aria-describedby="addon-wrapping">
                             </div>
                         </div>
                         <div class="data" id="MAISON">
                             <label for="">Nombre de chambre:</label>
                             <div class="input-group flex-nowrap">
-                                <input type="number" class="form-control" placeholder="Nombre de chambre"
-                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                                <input type="number" class="form-control" name="nbr_chambre"
+                                    placeholder="Nombre de chambre" aria-label="Prix" aria-describedby="addon-wrapping">
                             </div>
                             <label for="">Nombre de toillet:</label>
                             <div class="input-group flex-nowrap">
-                                <input type="number" class="form-control" placeholder="Nombre de toillet"
-                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                                <input type="number" name="nbr_toillet" class="form-control"
+                                    placeholder="Nombre de toillet" aria-label="nbr_toillet"
+                                    aria-describedby="addon-wrapping">
                             </div>
                             <label for="">Nombre d'&eacute;tage:</label>
                             <div class="input-group flex-nowrap">
-                                <input type="number" class="form-control" placeholder="Nombre d'&eacute;tage"
-                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                                <input type="number" name="nbr_etage" class="form-control"
+                                    placeholder="Nombre d'&eacute;tage" aria-label="nbr_etage"
+                                    aria-describedby="addon-wrapping">
                             </div>
                             <label for="">Nombre de cuisine:</label>
                             <div class="input-group flex-nowrap">
-                                <input type="number" class="form-control" placeholder="Nombre de cuisine"
-                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                                <input type="number" name="nbr_cuisine" class="form-control"
+                                    placeholder="Nombre de cuisine" aria-label="nbr_cuisine"
+                                    aria-describedby="addon-wrapping">
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                                <input class="form-check-input" value="true" name="avec_garage" type="checkbox"
+                                    id="flexCheckIndeterminate">
                                 <label class="form-check-label" for="flexCheckIndeterminate">
                                     Avec garage;
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
-                                <label class="form-check-label" name="equipe" for="flexCheckIndeterminate">
+                                <input class="form-check-input" type="checkbox" value="true" name="has_equipe"
+                                    id="flexCheckIndeterminate">
+                                <label class="form-check-label" for="flexCheckIndeterminate">
                                     has_equipe
                                 </label>
                             </div>
@@ -126,16 +132,17 @@
                         <div class="data" id="TERRAIN">
                             <label for="">Longeur:</label>
                             <div class="input-group flex-nowrap">
-                                <input type="number" class="form-control" placeholder="Nombre de cuisine"
-                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                                <input type="number" name="length" class="form-control" placeholder="Nombre de cuisine"
+                                    aria-label="length" aria-describedby="addon-wrapping">
                             </div>
                             <label for="">Largeur:</label>
                             <div class="input-group flex-nowrap">
-                                <input type="number" class="form-control" placeholder="Nombre de cuisine"
-                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                                <input type="number" name="width" class="form-control" placeholder="Nombre de cuisine"
+                                    aria-label="width" aria-describedby="addon-wrapping">
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                                <input class="form-check-input" name="is_title" type="checkbox" value=""
+                                    id="flexCheckIndeterminate">
                                 <label class="form-check-label" for="flexCheckIndeterminate">
                                     A une titre fonc&eacute;
                                 </label>
@@ -143,21 +150,28 @@
 
                             <label for="">Papier:</label>
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                                    style="height: 100px"></textarea>
+                                <textarea class="form-control" name="papier" placeholder="Leave a comment here"
+                                    id="floatingTextarea2" style="height: 100px"></textarea>
                                 <label for="floatingTextarea2">Papier</label>
                             </div>
                         </div>
                         <div class="data" id="MAGAZIN">
+                            <!-- <label for="">Longeur:</label>
+                            <div class="input-group flex-nowrap">
+                                <input type="number" step="0.01" name="length" class="form-control"
+                                    placeholder="Nombre de cuisine" aria-label="length"
+                                    aria-describedby="addon-wrapping">
+                            </div> -->
                             <label for="">Longeur:</label>
                             <div class="input-group flex-nowrap">
-                                <input type="number" class="form-control" placeholder="Nombre de cuisine"
-                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                                <input type="number" name="length" class="form-control" placeholder="Surface"
+                                    aria-label="Longeur" aria-describedby="addon-wrapping">
                             </div>
                             <label for="">Largeur:</label>
                             <div class="input-group flex-nowrap">
-                                <input type="number" class="form-control" placeholder="Nombre de cuisine"
-                                    aria-label="Prix" aria-describedby="addon-wrapping">
+                                <input type="number" step="0.01" name="width" class="form-control"
+                                    placeholder="Nombre de cuisine" aria-label="width"
+                                    aria-describedby="addon-wrapping">
                             </div>
                         </div>
 
