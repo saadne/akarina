@@ -180,9 +180,10 @@ a{
 .container-all{
   margin: 6rem 2rem 0 2rem;
 }
-
-
-
 .data{
   display: none;
+}
+
+.dropdown-menu{
+  z-index: 9;
 }

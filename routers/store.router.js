@@ -1,6 +1,11 @@
-const { Router } = require("express");
-const { createStore } = require("../controllers/store.controller");
-const router = Router();
+const express = require('express');
+const { addStore } = require('../controllers/store.controller')
+const router = express.Router();
 
-router.post("/create-store", createStore)
-module.exports = router;
+router.get('/', (req, res) => {
+    res.render("property/store", { title: "Create House" })
+})
+router.post('/', addStore)
+
+
+module.exports = router

@@ -1,6 +1,15 @@
-const { Router } = require("express");
-const { createLand } = require("../controllers/land.controller");
-const router = Router();
+const express = require('express');
+const { addLand } = require('../controllers/land.controller');
 
-router.post("/create", createLand)
-module.exports = router;
+
+
+const router = express.Router();
+
+
+router.post('/', addLand)
+router.get('/', (req, res) => {
+    res.render("property/land", { title: "Create House" })
+})
+
+
+module.exports = router

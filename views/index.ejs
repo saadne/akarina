@@ -23,40 +23,209 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-3 listing-card">
-                            <img class="listing-card-image image-size" src="../images/pexels-photo-259588.jpeg" />
-                            <div class="listing-card-body my-2">
-                                <div class="my-2">
-                                    <span class="listing-card-price"><strong>30000 MRU</strong></span>
+                        <% if (houses.length> 0) { %>
+                            <% houses.forEach((house)=> { %>
+                                <div class="col-lg-3 listing-card">
+                                    <img class="listing-card-image image-size"
+                                        src="../images/pexels-photo-259588.jpeg" />
+                                    <div class="listing-card-body my-2">
+                                        <div class="my-2">
+                                            <span class="listing-card-price"><strong>
+                                                    <%= house.price %> MRU
+                                                </strong></span>
+                                        </div>
+                                        <div class="listing-card-snapshot-container my-2">
+                                            <span>
+                                                <%= house.number_of_room %> <i class="fas fa-bed"></i>
+                                            </span>
+                                            <span>
+                                                <%= house.number_of_bathroom %> <i class="fas fa-bath"></i>
+                                            </span>
+                                            <span>
+                                                <%= house.number_of_kitchen %> <i class="fas fa-toilet"></i>
+                                            </span>
+                                            <span>
+                                                <%= house.street_size %> <i class="fas fa-th-large"></i>
+                                            </span>
+                                        </div>
+                                        <div class=" my-2">
+                                            <span><strong>
+                                                    <%= house.property_type %>
+                                                </strong></span>
+                                        </div>
+                                        <div class="listing-card-contact-container my-2">
+                                            <button class="listing-card-call-button">
+                                                <i class="fas fa-phone"></i> Call us
+                                            </button>
+                                            <button class="listing-card-whatssap-button">
+                                                <i class="fab fa-whatsapp"></i> Whatssap
+                                            </button>
+                                        </div>
+                                        <div class="my-2">
+                                            <a href="/details">
+                                                <button class="listing-card-details-button">Details</button>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="listing-card-snapshot-container my-2">
-                                    <span>6 <i class="fas fa-bed"></i> </span>
-                                    <span>2 <i class="fas fa-bath"></i> </span>
-                                    <span>1 <i class="fas fa-toilet"></i> </span>
-                                    <span>200 <i class="fas fa-th-large"></i> </span>
+                                <% })%>
+                                    <%} else { %>
+                                        <p>ther are no propertys</p>
+                                        <% } %>
+                    </div>
+                    <div class="row">
+                        <% if (apartments.length> 0) { %>
+                            <% apartments.forEach((apartment)=> { %>
+                                <div class="col-lg-3 listing-card">
+                                    <img class="listing-card-image image-size"
+                                        src="../images/pexels-photo-259588.jpeg" />
+                                    <div class="listing-card-body my-2">
+                                        <div class="my-2">
+                                            <span class="listing-card-price"><strong>
+                                                    <%= apartment.price %> MRU
+                                                </strong></span>
+                                        </div>
+                                        <div class="listing-card-snapshot-container my-2">
+                                            <span>
+                                                <%= apartment.number_of_room %> <i class="fas fa-bed"></i>
+                                            </span>
+                                            <span>
+                                                <%= apartment.number_of_bathroom %> <i class="fas fa-bath"></i>
+                                            </span>
+                                            <span>
+                                                <%= apartment.number_of_kitchen %> <i class="fas fa-toilet"></i>
+                                            </span>
+                                            <span>
+                                                <%= apartment.street_size %> <i class="fas fa-th-large"></i>
+                                            </span>
+                                        </div>
+                                        <div class=" my-2">
+                                            <span><strong>
+                                                    <%= apartment.property_type %>
+                                                </strong></span>
+                                        </div>
+                                        <div class="listing-card-contact-container my-2">
+                                            <button class="listing-card-call-button">
+                                                <i class="fas fa-phone"></i> Call us
+                                            </button>
+                                            <button class="listing-card-whatssap-button">
+                                                <i class="fab fa-whatsapp"></i> Whatssap
+                                            </button>
+                                        </div>
+                                        <div class="my-2">
+                                            <a href="/details">
+                                                <button class="listing-card-details-button">Details</button>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class=" my-2">
-                                    <span><strong>House</strong></span>
+                                <% })%>
+                                    <%} else { %>
+                                        <p>ther are no propertys</p>
+                                        <% } %>
+                    </div>
+                    <div class="row">
+                        <% if (lands.length> 0) { %>
+                            <% lands.forEach((land)=> { %>
+                                <div class="col-lg-3 listing-card">
+                                    <img class="listing-card-image image-size"
+                                        src="../images/pexels-photo-259588.jpeg" />
+                                    <div class="listing-card-body my-2">
+                                        <div class="my-2">
+                                            <span class="listing-card-price"><strong>
+                                                    <%= land.price %> MRU
+                                                </strong></span>
+                                        </div>
+                                        <div class="listing-card-snapshot-container my-2">
+                                            <span>
+                                                <%= land.length %> <i class="fas fa-bed"></i>
+                                            </span>
+                                            <span>
+                                                <%= land.width %> <i class="fas fa-bath"></i>
+                                            </span>
+
+                                            <span>
+                                                <%= land.street_size %> <i class="fas fa-th-large"></i>
+                                            </span>
+                                        </div>
+                                        <div class=" my-2">
+                                            <span><strong>
+                                                    <%= land.property_type %>
+                                                </strong></span>
+                                        </div>
+                                        <div class="listing-card-contact-container my-2">
+                                            <button class="listing-card-call-button">
+                                                <i class="fas fa-phone"></i> Call us
+                                            </button>
+                                            <button class="listing-card-whatssap-button">
+                                                <i class="fab fa-whatsapp"></i> Whatssap
+                                            </button>
+                                        </div>
+                                        <div class="my-2">
+                                            <a href="/details">
+                                                <button class="listing-card-details-button">Details</button>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="listing-card-contact-container my-2">
-                                    <button class="listing-card-call-button">
-                                        <i class="fas fa-phone"></i> Call us
-                                    </button>
-                                    <button class="listing-card-whatssap-button">
-                                        <i class="fab fa-whatsapp"></i> Whatssap
-                                    </button>
+                                <% })%>
+                                    <%} else { %>
+                                        <p>ther are no propertys</p>
+                                        <% } %>
+                    </div>
+                    <div class="row">
+                        <% if (stores.length> 0) { %>
+                            <% stores.forEach((store)=> { %>
+                                <div class="col-lg-3 listing-card">
+                                    <img class="listing-card-image image-size"
+                                        src="../images/pexels-photo-259588.jpeg" />
+                                    <div class="listing-card-body my-2">
+                                        <div class="my-2">
+                                            <span class="listing-card-price"><strong>
+                                                    <%= store.price %> MRU
+                                                </strong></span>
+                                        </div>
+                                        <div class="listing-card-snapshot-container my-2">
+                                            <span>
+                                                <%= stores.length %> <i class="fas fa-bed"></i>
+                                            </span>
+                                            <span>
+                                                <%= store.width %> <i class="fas fa-bath"></i>
+                                            </span>
+                                            <span>
+                                                <%= store.street_size %> <i class="fas fa-th-large"></i>
+                                            </span>
+                                        </div>
+                                        <div class=" my-2">
+                                            <span><strong>
+                                                    <%= store.property_type %>
+                                                </strong></span>
+                                        </div>
+                                        <div class="listing-card-contact-container my-2">
+                                            <button class="listing-card-call-button">
+                                                <i class="fas fa-phone"></i> Call us
+                                            </button>
+                                            <button class="listing-card-whatssap-button">
+                                                <i class="fab fa-whatsapp"></i> Whatssap
+                                            </button>
+                                        </div>
+                                        <div class="my-2">
+                                            <a href="/details">
+                                                <button class="listing-card-details-button">Details</button>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="my-2">
-                                    <a href="/details">
-                                        <button class="listing-card-details-button">Details</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                                <% })%>
+                                    <%} else { %>
+                                        <p>ther are no propertys</p>
+                                        <% } %>
                     </div>
                 </div>
+
             </div>
             <%- include('./partiels/footer.ejs')%>
     </body>

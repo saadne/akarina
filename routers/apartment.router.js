@@ -1,8 +1,13 @@
-const { Router } = require('express')
-const { createApartment } = require('../controllers/apartment.controller')
-const router = Router()
+const express = require('express');
+const { addApartment } = require('../controllers/apartment.controller');
 
-router.post('/apartment', createApartment)
+
+const router = express.Router();
+
+router.get('/', (req, res) => {
+    res.render("property/apartment", { title: "Ajouter Appartement" })
+})
+router.post('/', addApartment)
 
 
 module.exports = router

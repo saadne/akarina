@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partiels/head.ejs')%>
+
+    <body>
+        <%- include('../partiels/nav.ejs')%>
+            <div class="container-all">
+                <h1>Ajouter Appartement</h1>
+                <div class="form">
+                    <form method="POST" action="/apartments">
+                        <label for="">Type de properit&eacute;:</label>
+                        <select id="type" name="property_type" class="form-select" aria-label="Default select example">
+                            <option value="APPARTEMENT" selected>APPARTEMENT</option>
+                        </select>
+                        <label for="">Louer ou vendre:</label>
+                        <select class="form-select" name="add_type" aria-label="Default select example">
+                            <option value="LOUER" selected>LOUER</option>
+                            <option value="VENDRE">VENDRE</option>
+                        </select>
+                        <label for="">Type de louer:</label>
+                        <select class="form-select" name="rent_type" aria-label="Default select example">
+                            <option value="PAR MOIS" selected>PAR MOIS</option>
+                            <option value="PAR JOUR">PAR JOUR</option>
+                            <option value="PAR ANNEE">PAR ANNEE</option>
+                        </select>
+                        <label for="">Location:</label>
+                        <select class="form-select" name="region" aria-label="Default select example">
+                            <option value="NOUAKCHOTT OUEST" selected>NOUAKCHOTT OUEST</option>
+                            <option value="NOUAKCHOTT NORD">NOUAKCHOTT NORD</option>
+                            <option value="NOUAKCHOTT SID">NOUAKCHOTT SID</option>
+                        </select>
+                        <label for="">Ville:</label>
+                        <select class="form-select" name="city" aria-label="Default select example">
+                            <option value="TEVRAGHE ZEINA" selected>TEVRAGHE ZEINA</option>
+                            <option value="KSAR">KSAR</option>
+                            <option value="TEYARITE">TEYARIT</option>
+                            <option value="ARAVAT">ARAVAT</option>
+                            <option value="TOUJOUNINE">TOUJOUNINE</option>
+                            <option value="ELMINA">ELMINA</option>
+                        </select>
+                        <label for="">Surface:</label>
+                        <div class="input-group flex-nowrap">
+                            <input type="number" name="street_size" class="form-control" placeholder="Surface"
+                                aria-label="Surface" aria-describedby="addon-wrapping">
+                        </div>
+                        <label for="">Price:</label>
+                        <div class="input-group flex-nowrap">
+                            <input type="number" name="price" class="form-control" placeholder="Prix" aria-label="Prix"
+                                aria-describedby="addon-wrapping">
+                        </div>
+
+                        <label for="">Nombre de chambre:</label>
+                        <div class="input-group flex-nowrap">
+                            <input type="number" class="form-control" name="number_of_room"
+                                placeholder="Nombre de chambre" aria-label="Prix" aria-describedby="addon-wrapping">
+                        </div>
+                        <label for="">Nombre de toillet:</label>
+                        <div class="input-group flex-nowrap">
+                            <input type="number" name="number_of_bathroom" class="form-control"
+                                placeholder="Nombre de toillet" aria-label="nbr_toillet"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                        <label for="">Nombre de cuisine:</label>
+                        <div class="input-group flex-nowrap">
+                            <input type="number" name="number_of_kitchen" class="form-control"
+                                placeholder="Nombre de cuisine" aria-label="nbr_cuisine"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                        <label for="">Numero d'&eacute;tage:</label>
+                        <div class="input-group flex-nowrap">
+                            <input type="number" name="floor_number" class="form-control"
+                                placeholder="Nombre d'&eacute;tage" aria-label="nbr_etage"
+                                aria-describedby="addon-wrapping">
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="true" name="has_equipe"
+                                id="flexCheckIndeterminate">
+                            <label class="form-check-label" for="flexCheckIndeterminate">
+                                Avec meuble
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFileSm" class="form-label">Images:</label>
+                            <input multiple class="form-control form-control-sm" name="images" id="formFileSm"
+                                type="file">
+                        </div>
+                        <label for="">Description:</label>
+                        <div class="form-floating">
+                            <textarea class="form-control" name="description" placeholder="Leave a comment here"
+                                id="floatingTextarea2" style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Description</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </form>
+                </div>
+            </div>
+
+            <%- include('../partiels/footer.ejs')%>
+    </body>
+
+</html>

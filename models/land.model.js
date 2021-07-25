@@ -3,6 +3,35 @@ const db = require("../config/db");
 
 
 const Land = db.define("Land", {
+    property_type: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    add_type: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    rent_type: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    region: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    city: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    street_size: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
+    price: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
+
     length: {
         type: DataTypes.FLOAT,
         allowNull: false
@@ -11,14 +40,22 @@ const Land = db.define("Land", {
         type: DataTypes.FLOAT,
         allowNull: false
     },
+    is_title: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true
+    },
     papier: {
         type: DataTypes.TEXT,
         allowNull: false
     },
-    is_title: {
-        type: DataTypes.BOOLEAN,
+    images: {
+        type: DataTypes.STRING,
         allowNull: true
-    }
+    },
+    description: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
 });
 db.sync({ alter: true })
 

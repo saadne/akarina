@@ -1,8 +1,35 @@
 const { DataTypes } = require("sequelize");
 const db = require("../config/db");
 
-
 const Store = db.define("Store", {
+    property_type: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    add_type: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    rent_type: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    region: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    city: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    street_size: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
+    price: {
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
     length: {
         type: DataTypes.FLOAT,
         allowNull: false
@@ -11,6 +38,15 @@ const Store = db.define("Store", {
         type: DataTypes.FLOAT,
         allowNull: false
     },
+    images: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+    description: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
+
 });
 db.sync({ alter: true })
 

@@ -1,11 +1,13 @@
-const { Router } = require("express");
-const { getHouse, createHouse, createProperty, createFeature } = require("../controllers/house.contorller");
-const router = Router();
-
-router.post("/", createHouse);
-// router.get("/create-property", createFeature);
-// router.get("/create-feature", createProperty);
+const express = require('express');
+const { addHouse } = require('../controllers/house.controller');
+const router = express.Router();
 
 
-// router.post("/", createHouse)
-module.exports = router;
+router.get('/', (req, res) => {
+    res.render('property/house', { title: 'Ajouter Maison' })
+}
+)
+router.post('/', addHouse)
+
+
+module.exports = router
