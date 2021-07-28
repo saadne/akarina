@@ -1,5 +1,5 @@
 const express = require('express');
-const { addLand } = require('../controllers/land.controller');
+const { addLand, deleteLand } = require('../controllers/land.controller');
 
 
 
@@ -10,6 +10,7 @@ router.post('/', addLand)
 router.get('/', (req, res) => {
     res.render("property/land", { title: "Create House" })
 })
+router.delete('/delete-land/:id', deleteLand)
 
 
 module.exports = router

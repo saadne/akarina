@@ -26,3 +26,18 @@ exports.addApartment = async (req, res) => {
         return res.status(500).json({ message: error.message })
     }
 }
+
+exports.deleteApartment = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Apartment.destroy({
+            where: {
+                id
+            }
+        });
+        return res.status(201).json({ message: "Apartment deleted successfuly" })
+
+    } catch (error) {
+        return res.status(401).json({ message: "You are unauthorized to delete" })
+    }
+}

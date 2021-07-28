@@ -13,11 +13,25 @@ exports.addLand = async (req, res) => {
         })
         const savedLand = await newLand.save();
         if (savedLand) {
-            return res.status(201).json({ savedLand: savedLand, message: "land added successfuly" })
+            res.redirect('/')
         }
         return res.status(401).json({ message: "unauthorided user" })
 
     } catch (error) {
         return res.status(500).json({ message: error.message })
+    }
+}
+exports.deleteLand = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Land.destroy({
+            where: {
+                id
+            }
+        });
+        return res.status(201).json({ message: "Land deleted successfuly" })
+
+    } catch (error) {
+        return res.status(401).json({ message: "You are unauthorized to delete" })
     }
 }

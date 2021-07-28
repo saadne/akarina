@@ -15,9 +15,25 @@
                         </h1>
                         <div class="search">
                             <form class="search-form">
-                                <input class="search-input" type="text" placeholder="Property type" name="location" />
-                                <input class="search-input" type="text" placeholder="For sale" name="location" />
-                                <input class="search-input" type="text" placeholder="Location" name="location" />
+                                <select class="form-select" name="property_type" aria-label="Default select example">
+                                    <option value="MAISON" selected>MAISON</option>
+                                    <option value="APPARTEMENT">APPARTEMENT</option>
+                                    <option value="TERRAIN">TERRAIN</option>
+                                    <option value="MAGAZIN">MAGAZIN</option>
+                                </select>
+                                <select class="form-select" name="add_type" aria-label="Default select example">
+                                    <option value="LOUER" selected>LOUER</option>
+                                    <option value="VENDRE">VENDRE</option>
+                                </select>
+                                <select class="form-select" name="city" aria-label="Default select example">
+                                    <option value="TEVRAGHE ZEINA" selected>TEVRAGHE ZEINA</option>
+                                    <option value="KSAR">KSAR</option>
+                                    <option value="TEYARITE">TEYARIT</option>
+                                    <option value="ARAVAT">ARAVAT</option>
+                                    <option value="TOUJOUNINE">TOUJOUNINE</option>
+                                    <option value="ELMINA">ELMINA</option>
+                                </select>
+
                                 <button class="search-button" type="submit">Search</button>
                             </form>
                         </div>

@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('./partiels/head.ejs')%>
+<%- include('../partiels/head.ejs')%>
 
     <body>
-        <%- include('./partiels/nav.ejs')%>
+        <%- include('../partiels/nav.ejs')%>
             <div class="container-all">
                 <h1>Sign Up</h1>
 
-                <form>
+                <form action="/auth/register" method="POST">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Votre Numero de Telephone:</label>
-                        <input type="numberl" name="nbr_telephone" class="form-control"
+                        <input type="numberl" name="phone" class="form-control"
                             placeholder="Enter votre numero de telephone">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Votre Nom:</label>
-                        <input type="numberl" name="nom" class="form-control"
+                        <input type="numberl" name="name" class="form-control"
                             placeholder="Enter votre numero de telephone">
                     </div>
                     <div class="mb-3">
@@ -33,7 +33,7 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
-            <%- include('./partiels/footer.ejs')%>
+            <%- include('../partiels/footer.ejs')%>
 
     </body>
 

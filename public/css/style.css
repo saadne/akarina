@@ -187,3 +187,12 @@ a{
 .dropdown-menu{
   z-index: 9;
 }
+.search-form{
+  display: flex;
+  justify-content: space-around;
+}
+.search-form .form-select{
+  display: flex;
+  margin-right: 1rem;
+  border: none;
+}

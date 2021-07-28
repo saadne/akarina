@@ -1,34 +1,62 @@
 ###
-GET http://localhost:3333/api/v1/phones HTTP/1.1
+GET  http://localhost:5000 HTTP/1.1
 Content-Type: application/json
 
 ###
 # Authorization: atighloveljene eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsIm5hbWUiOiJhdGlnaCIsImVtYWlsIjoiZWxhdGlnaEBEUzI0LmNvbSIsInVzZXJuYW1lIjoiYXRpZ2giLCJpYXQiOjE2MjUxNDM2NjMsImV4cCI6MTYyNTE0NDI2M30.5m-AJcB5WIDS8iGgHZOFMXKcadtZbAR817IdCvnBMk8
-POST  http://localhost:5000/house HTTP/1.1
+POST  http://localhost:5000/houses HTTP/1.1
 Content-Type: application/json
 
 {
-    "property_type":"atigh",
-    "rent_type":"louer"
+    "property_type":"", 
+    "add_type":"",
+    "rent_type":"",
+    "region":"",
+    "city":"",
+    "street_size":"",
+    "price":"",
+    "number_of_room":"",
+    "number_of_bathroom":"",
+    "number_of_kitchen":"",
+    "has_car_park":"",
+    "number_of_floors":"",
+    "has_furniture":"",
+    "images":"",
+    "description":""
 }
 ###
-PUT http://localhost:3333/api/v1/phones/update-phone/2  HTTP/1.1
+PUT http://localhost:5000/houses/update-house/2  HTTP/1.1
 Content-Type: application/json
 
 {
-    "image":"image url updaated",
-    "name":"name updaated",
-    "brand":"brand updaated",
-    "isUsed":false, 
-    "memory":255,
-    "price":3444,
-    "description":"description updaated",
-    "inStock":true
+    "property_type":"Maison", 
+    "add_type":"Louer",
+    "rent_type":"Par Mois",
+    "region":"NOUAKCHOTT SID",
+    "city":"ARAVAT",
+    "street_size":800,
+    "price":12000,
+    "number_of_room":7,
+    "number_of_bathroom":3,
+    "number_of_kitchen":2,
+    "has_car_park":true,
+    "number_of_floors":2,
+    "has_furniture":true,
+    "images":"blalalla",
+    "description":"description"
 }
 ####
-DELETE  http://localhost:3333/api/v1/phones/delete-phone/1  HTTP/1.1
+DELETE  http://localhost:5000/houses/delete-house/5  HTTP/1.1
 Content-Type: application/json
-
+####
+DELETE  http://localhost:5000/apartments/delete-apartment/3 HTTP/1.1
+Content-Type: application/json
+####
+DELETE  http://localhost:5000/lands/delete-land/2  HTTP/1.1
+####
+Content-Type: application/json
+DELETE  http://localhost:5000/stores/delete-store/5  HTTP/1.1
+Content-Type: application/json
 ####
 POST  http://localhost:3333/api/v1/auth/login  HTTP/1.1
 Content-Type: application/json

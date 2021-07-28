@@ -1,5 +1,5 @@
 const express = require('express');
-const { addHouse } = require('../controllers/house.controller');
+const { addHouse, deleteHouse, updateHouse } = require('../controllers/house.controller');
 const router = express.Router();
 
 
@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
 }
 )
 router.post('/', addHouse)
-
+router.delete('/delete-house/:id', deleteHouse)
+router.put('/update-house/:id', updateHouse)
 
 module.exports = router

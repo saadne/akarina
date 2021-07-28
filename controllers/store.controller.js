@@ -20,3 +20,18 @@ exports.addStore = async (req, res) => {
         return res.status(500).json({ message: error.message })
     }
 }
+
+exports.deleteStore = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Store.destroy({
+            where: {
+                id
+            }
+        });
+        return res.status(201).json({ message: "Store deleted successfuly" })
+
+    } catch (error) {
+        return res.status(401).json({ message: "You are unauthorized to delete" })
+    }
+}

@@ -7,7 +7,7 @@
             <div class="container-all">
                 <h1>Ajouter Maison</h1>
                 <div class="form">
-                    <form method="POST" action="/houses">
+                    <form action="/houses" method="post">
                         <label for="">Type de properit&eacute;:</label>
                         <select id="type" name="property_type" class="form-select" aria-label="Default select example">
                             <option value="MAISON" selected>MAISON</option>
@@ -88,8 +88,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="formFileSm" class="form-label">Images:</label>
-                            <input multiple class="form-control form-control-sm" name="images" id="formFileSm"
-                                type="file">
+                            <input class="form-control form-control-sm" name="images" id="formFileSm" type="file">
                         </div>
                         <label for="">Description:</label>
                         <div class="form-floating">
