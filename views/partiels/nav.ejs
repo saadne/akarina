@@ -1,41 +1,77 @@
-<nav class="navbar navbar-expand-lg fixed-top">
-    <div class="container-fluid container">
-        <a class="navbar-brand" href="/">Akarina</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="/">Akarina</a>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/auth/register">
-                        <i class="bi bi-person-plus-fill"></i> Sign up</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/add">
-                        <i class="bi bi-plus"></i>Add</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/auth/login">
-                        <i class="bi bi-box-arrow-in-left"></i>Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-globe"></i> Arabic</a>
-
-                </li>
+                <% if(user) { %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="bi bi-plus"></i>Add Property
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/houses">Maison</a>
+                            <a class="dropdown-item" href="/apartments">Appartement</a>
+                            <a class="dropdown-item" href="lands">Terrain</a>
+                            <a class="dropdown-item" href="stores">Magazin</a>
+                        </div>
+                    </li>
+                    <% if(user.role=='admin' ) { %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/admin-profile">
+                                <i class="bi bi-people"></i> Utilisatueres</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile">
+                                <i class="bi bi-person-circle"></i> Profile</a>
+                        </li>
+                        <% }else { %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/profile">
+                                    <i class="bi bi-person-circle"></i> Profile</a>
+                            </li>
+                            <% } %>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="bi bi-globe"></i> Langage
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="#">Arabe</a>
+                                        <a class="dropdown-item" href="#">Francais</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/auth/logout">
+                                        <i class="bi bi-box-arrow-in-right"></i> Log Out</a>
+                                </li>
+                                <% } else { %>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/auth/signup">
+                                            <i class="bi bi-person-plus-fill"></i> Sign up</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/auth/login">
+                                            <i class="bi bi-box-arrow-in-left"></i>Login</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="bi bi-globe"></i> Langage
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="#">Arabic</a>
+                                            <a class="dropdown-item" href="#">Francais</a>
+                                        </div>
+                                    </li>
+                                    <%}%>
             </ul>
         </div>
     </div>
+
+
 </nav>

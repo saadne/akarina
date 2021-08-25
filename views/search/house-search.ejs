@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partiels/head.ejs')%>
+
+    <body>
+        <%- include('../partiels/nav.ejs')%>
+            <div class="container">
+                <div class="row">
+                    <div class="hero">
+                        <h1 class="hero-title">
+                            Search properties for sale and to rent in Mauritania
+                        </h1>
+                        <div class="search">
+                            <form class="search-form" action="/search" method="GET">
+                                <select class="form-select" name="property_type" aria-label="Default select example">
+                                    <option value="MAISON" selected>MAISON</option>
+                                    <option value="APPARTEMENT">APPARTEMENT</option>
+                                    <option value="TERRAIN">TERRAIN</option>
+                                    <option value="MAGAZIN">MAGAZIN</option>
+                                </select>
+                                <select class="form-select" name="add_type" aria-label="Default select example">
+                                    <option value="LOUER" selected>LOUER</option>
+                                    <option value="VENDRE">VENDRE</option>
+                                </select>
+                                <select class="form-select" name="city" aria-label="Default select example">
+                                    <option value="TEVRAGHE ZEINA" selected>TEVRAGHE ZEINA</option>
+                                    <option value="KSAR">KSAR</option>
+                                    <option value="TEYARITE">TEYARIT</option>
+                                    <option value="ARAVAT">ARAVAT</option>
+                                    <option value="TOUJOUNINE">TOUJOUNINE</option>
+                                    <option value="ELMINA">ELMINA</option>
+                                </select>
+
+                                <button class="search-button" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <% if (houses.length> 0) { %>
+                        <% houses.forEach((house)=> { %>
+                            <div class="col-lg-3 listing-card">
+                                <img class="listing-card-image image-size" src="../images/pexels-photo-259588.jpeg" />
+                                <div class="listing-card-body my-2">
+                                    <div class="my-2">
+                                        <span class="listing-card-price"><strong>
+                                                <%= house.price %> MRU
+                                            </strong></span>
+                                    </div>
+                                    <div class="listing-card-snapshot-container my-2">
+                                        <span>
+                                            <%= house.number_of_room %> <i class="fas fa-bed"></i>
+                                        </span>
+                                        <span>
+                                            <%= house.number_of_bathroom %> <i class="fas fa-bath"></i>
+                                        </span>
+                                        <span>
+                                            <%= house.number_of_kitchen %> <i class="fas fa-toilet"></i>
+                                        </span>
+                                        <span>
+                                            <%= house.street_size %> <i class="fas fa-th-large"></i>
+                                        </span>
+                                    </div>
+                                    <div class=" my-2">
+                                        <span><strong>
+                                                <%= house.property_type %>
+                                            </strong></span>
+                                    </div>
+                                    <div class="listing-card-contact-container my-2">
+                                        <button class="listing-card-call-button">
+                                            <i class="fas fa-phone"></i> Call us
+                                        </button>
+                                        <button class="listing-card-whatssap-button">
+                                            <i class="fab fa-whatsapp"></i> Whatssap
+                                        </button>
+                                    </div>
+                                    <div class="my-2">
+                                        <a href="/house/details/<%= house.id %>">
+                                            <button class="listing-card-details-button">Details</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% })%>
+                                <%} else { %>
+                                    <p>ther are no propertys</p>
+                                    <% } %>
+                </div>
+            </div>
+            <%- include('../partiels/footer.ejs')%>
+                </div>
+    </body>
+
+</html>

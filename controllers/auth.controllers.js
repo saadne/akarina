@@ -1,15 +1,29 @@
-const User = require('../models/User.model')
+const User = require('../models/user.model')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
+const maxAge = 24 * 60 * 60;
+const createToken = (user) => {
+    return jwt.sign(user, process.env.JWT_SECRET)
+}
 exports.addUser = async (req, res) => {
-    console.log(req.body)
+    const { phone, name, email } = req.body
     try {
         const hash = bcrypt.hashSync(req.body.password, 10);
-        let user = await User.create(
-            Object.assign(req.body, { password: hash })
-        );
+        let role = req.body.role
+        if (role !== 'admin') {
+            role = 'simple utilisateur'
+        }
+        let newUser = await new User({
+            phone, name, email, role, password: hash
+        })
+        const user = await newUser.save()
+        const token = createToken(user.id)
         if (user) {
-            return res.json(user);
+            res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
+            if (user.role == "admin") {
+                return res.redirect('/admin/admin-profile')
+            }
+            return res.status(200).redirect('/profile')
         }
 
     } catch (error) {
@@ -18,20 +32,26 @@ exports.addUser = async (req, res) => {
     }
 }
 exports.loginUser = async (req, res) => {
-    const generateAccessToken = (user) => jwt.sign(user, process.env.JWT_SECRET, { expiresIn: "600s" })
     try {
         const { phone, password } = req.body;
         const user = await User.findOne({ where: { phone } });
         const match = await bcrypt.compare(password, user.password)
-        const accessToken = generateAccessToken({ id: user.id, name: user.name, email: user.email, phone: user.phone });
+        const token = createToken(user.id)
         if (user && match) {
-            return res.status(200).json({ id: user.id, name: user.name, email: user.email, phone: user.phone, accessToken, message: "loged in successfully" })
+            res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
+            if (user.role == "admin") {
+                return res.redirect('/admin/admin-profile')
+            }
+            return res.status(200).redirect('/profile')
         }
         return res.status(401).json({ message: "phone or password incrrect" });
 
     } catch (error) {
         return res.status(401).json({ message: "bad request" });
-
     }
+}
 
+exports.logout = (req, res) => {
+    res.cookie('jwt', '', { maxAge: 1 })
+    res.redirect('/')
 }

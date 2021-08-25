@@ -56,6 +56,10 @@ const Land = db.define("Land", {
         type: DataTypes.TEXT,
         allowNull: true
     },
+    added_by: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }
 });
 db.sync({ alter: true })
 

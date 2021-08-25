@@ -54,13 +54,17 @@ const House = db.define("house", {
         type: DataTypes.BOOLEAN,
         allowNull: true
     },
-    images: {
-        type: DataTypes.STRING,
-        allowNull: true
+    image_name: {
+        type: DataTypes.STRING
     },
+
     description: {
         type: DataTypes.TEXT,
         allowNull: true
+    },
+    added_by: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
 });
 db.sync({ alter: true });

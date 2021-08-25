@@ -5,16 +5,14 @@
 
     <body>
         <%- include('./partiels/nav.ejs')%>
-            <div class="group">
-
-
+            <div class="container">
                 <div class="row">
                     <div class="hero">
                         <h1 class="hero-title">
                             Search properties for sale and to rent in Mauritania
                         </h1>
                         <div class="search">
-                            <form class="search-form">
+                            <form class="search-form" action="/search" method="GET">
                                 <select class="form-select" name="property_type" aria-label="Default select example">
                                     <option value="MAISON" selected>MAISON</option>
                                     <option value="APPARTEMENT">APPARTEMENT</option>
@@ -39,8 +37,7 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="container">
+                <% if(houses.length> 0 || apartments.length> 0 || lands.length> 0 || stores.length> 0) { %>
                     <div class="row">
                         <% if (houses.length> 0) { %>
                             <% houses.forEach((house)=> { %>
@@ -81,16 +78,13 @@
                                             </button>
                                         </div>
                                         <div class="my-2">
-                                            <a href="/details">
+                                            <a href="/house/details/<%= house.id %>">
                                                 <button class="listing-card-details-button">Details</button>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <% })%>
-                                    <%} else { %>
-                                        <p>ther are no propertys</p>
-                                        <% } %>
+                                <% })}%>
                     </div>
                     <div class="row">
                         <% if (apartments.length> 0) { %>
@@ -132,16 +126,13 @@
                                             </button>
                                         </div>
                                         <div class="my-2">
-                                            <a href="/details">
+                                            <a href="/apartment/details/<%= apartment.id %>">
                                                 <button class="listing-card-details-button">Details</button>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <% })%>
-                                    <%} else { %>
-                                        <p>ther are no propertys</p>
-                                        <% } %>
+                                <% })}%>
                     </div>
                     <div class="row">
                         <% if (lands.length> 0) { %>
@@ -157,10 +148,10 @@
                                         </div>
                                         <div class="listing-card-snapshot-container my-2">
                                             <span>
-                                                <%= land.length %> <i class="fas fa-bed"></i>
+                                                Longueur: <%= land.length %>m
                                             </span>
                                             <span>
-                                                <%= land.width %> <i class="fas fa-bath"></i>
+                                                Largeur: <%= land.width %>m
                                             </span>
 
                                             <span>
@@ -181,16 +172,13 @@
                                             </button>
                                         </div>
                                         <div class="my-2">
-                                            <a href="/details">
+                                            <a href="land/details/<%= land.id %>">
                                                 <button class="listing-card-details-button">Details</button>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <% })%>
-                                    <%} else { %>
-                                        <p>ther are no propertys</p>
-                                        <% } %>
+                                <% })}%>
                     </div>
                     <div class="row">
                         <% if (stores.length> 0) { %>
@@ -206,10 +194,10 @@
                                         </div>
                                         <div class="listing-card-snapshot-container my-2">
                                             <span>
-                                                <%= stores.length %> <i class="fas fa-bed"></i>
+                                                Longueur: <%= stores.length %>m
                                             </span>
                                             <span>
-                                                <%= store.width %> <i class="fas fa-bath"></i>
+                                                Largeur: <%= store.width %>m
                                             </span>
                                             <span>
                                                 <%= store.street_size %> <i class="fas fa-th-large"></i>
@@ -229,21 +217,24 @@
                                             </button>
                                         </div>
                                         <div class="my-2">
-                                            <a href="/details">
+                                            <a href="/store/details/<%= store.id %>">
                                                 <button class="listing-card-details-button">Details</button>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <% })%>
-                                    <%} else { %>
-                                        <p>ther are no propertys</p>
-                                        <% } %>
+                                <% })}%>
                     </div>
-                </div>
+                    <% } else { %>
+                        <div class="text-center my-5">
 
+                            <h3>There are no property</h3>
+
+                        </div>
+                        <% } %>
             </div>
             <%- include('./partiels/footer.ejs')%>
+
     </body>
 
 </html>

@@ -4,10 +4,10 @@
 
     <body>
         <%- include('../partiels/nav.ejs')%>
-            <div class="container-all">
+            <div class="container">
                 <h1>Ajouter Maison</h1>
                 <div class="form">
-                    <form action="/houses" method="post">
+                    <form method="POST" action="/houses">
                         <label for="">Type de properit&eacute;:</label>
                         <select id="type" name="property_type" class="form-select" aria-label="Default select example">
                             <option value="MAISON" selected>MAISON</option>
@@ -88,13 +88,16 @@
                         </div>
                         <div class="mb-3">
                             <label for="formFileSm" class="form-label">Images:</label>
-                            <input class="form-control form-control-sm" name="images" id="formFileSm" type="file">
+                            <input type="file" class="form-control form-control-sm" name="image" id="formFileSm">
                         </div>
                         <label for="">Description:</label>
                         <div class="form-floating">
                             <textarea class="form-control" name="description" placeholder="Leave a comment here"
                                 id="floatingTextarea2" style="height: 100px"></textarea>
                             <label for="floatingTextarea2">Description</label>
+                        </div>
+                        <div class="input-group flex-nowrap">
+                            <input type="hidden" name="added_by" value="<%= user.id %>" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     </form>

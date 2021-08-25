@@ -5,7 +5,7 @@
 
     <body>
         <%- include('../partiels/nav.ejs')%>
-            <div class="container-all">
+            <div class="container">
                 <h1>Login</h1>
                 <form action="/auth/login" method="POST">
                     <div class="mb-3">
@@ -18,7 +18,9 @@
                         <input type="password" name="password" class="form-control" id="exampleInputPassword1"
                             placeholder="Enter Votre Mot de passe ">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="/auth/signup">Creer un compte</a>
+                    <br>
+                    <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Submit</button>
                 </form>
             </div>
             <%- include('../partiels/footer.ejs')%>

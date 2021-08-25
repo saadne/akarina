@@ -4,7 +4,7 @@
 
     <body>
         <%- include('../partiels/nav.ejs')%>
-            <div class="container-all">
+            <div class="container">
                 <h1>Ajouter Terrain</h1>
                 <div class="form">
                     <form method="POST" action="/lands">
@@ -82,6 +82,9 @@
                             <textarea class="form-control" name="description" placeholder="Leave a comment here"
                                 id="floatingTextarea2" style="height: 100px"></textarea>
                             <label for="floatingTextarea2">Description</label>
+                        </div>
+                        <div class="input-group flex-nowrap">
+                            <input type="hidden" name="added_by" value="<%= user.id %>" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     </form>
