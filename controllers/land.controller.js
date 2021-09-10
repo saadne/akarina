@@ -4,11 +4,11 @@ exports.addLand = async (req, res) => {
     try {
 
         const { property_type, add_type, rent_type, region, city,
-            street_size, price, length, width, is_title, papier, images,
+            street_size, price, length, width, is_title, papier, image_name,
             description, added_by } = req.body;
         const newLand = new Land({
             property_type, add_type, rent_type, region, city,
-            street_size, price, length, width, is_title, papier, images,
+            street_size, price, length, width, is_title, papier, image_name,
             description, added_by
         })
         const savedLand = await newLand.save();
@@ -39,7 +39,7 @@ exports.updateLand = async (req, res) => {
     try {
         const { id } = req.params.id
         const { property_type, add_type, rent_type, region, city,
-            street_size, price, length, width, is_title, papier, images,
+            street_size, price, length, width, is_title, papier, image_name,
             description, added_by } = req.body;
 
         let landEdited = await Land.findOne({ where: { id: req.params.id } })
@@ -55,7 +55,7 @@ exports.updateLand = async (req, res) => {
             landEdited.width = width
             landEdited.papier = papier
             landEdited.is_title = is_title
-            landEdited.images = images
+            landEdited.image_name = image_name
             landEdited.description = description
             landEdited.added_by = added_by
             await landEdited.save()

@@ -48,7 +48,7 @@ const Land = db.define("Land", {
         type: DataTypes.TEXT,
         allowNull: false
     },
-    images: {
+    image_name: {
         type: DataTypes.STRING,
         allowNull: true
     },

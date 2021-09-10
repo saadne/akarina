@@ -7,13 +7,67 @@ const Store = require('../models/store.model')
 
 const router = express.Router()
 
+
 router.get('/', async (req, res) => {
+    const page = parseInt(req.query.page);
+    const limit = 4;
+    const startIndex = (page - 1) * limit
+    const endIndex = page * limit
+    let lands = {}
+    let stores = {}
+    let apartments = {}
+    let houses = {}
 
     try {
-        const houses = await House.findAll()
-        const apartments = await Apartment.findAll()
-        const lands = await Land.findAll()
-        const stores = await Store.findAll()
+        const housesData = await House.findAll()
+        if (endIndex < housesData.length) {
+            houses.next = {
+                page: page + 1,
+            }
+        }
+        if (startIndex > 0) {
+            houses.previous = {
+                page: page - 1,
+            }
+        }
+        houses.houses = housesData.slice(startIndex, endIndex)
+        const apartmentsData = await Apartment.findAll()
+        if (endIndex < apartmentsData.length) {
+            apartments.next = {
+                page: page + 1,
+            }
+        }
+        if (startIndex > 0) {
+            apartments.previous = {
+                page: page - 1,
+            }
+        }
+        apartments.apartments = apartmentsData.slice(startIndex, endIndex)
+
+        const landsData = await Land.findAll();
+        if (endIndex < landsData.length) {
+            lands.next = {
+                page: page + 1,
+            }
+        }
+        if (startIndex > 0) {
+            lands.previous = {
+                page: page - 1,
+            }
+        }
+        lands.lands = landsData.slice(startIndex, endIndex)
+        const storesData = await Store.findAll()
+        if (endIndex < storesData.length) {
+            stores.next = {
+                page: page + 1,
+            }
+        }
+        if (startIndex > 0) {
+            stores.previous = {
+                page: page - 1,
+            }
+        }
+        stores.stores = storesData.slice(startIndex, endIndex)
         res.render('index', { title: "Home", apartments, houses, lands, stores })
     } catch (error) {
         console.log(error)

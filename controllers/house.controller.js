@@ -48,7 +48,7 @@ exports.updateHouse = async (req, res) => {
     try {
         const { id } = req.params.id
         const { property_type, add_type, rent_type, region, city,
-            street_size, price, images, number_of_room, number_of_bathroom,
+            street_size, price, image_name, number_of_room, number_of_bathroom,
             number_of_floors, number_of_kitchen, has_car_park, has_furniture,
             description, added_by } = req.body;
 
@@ -67,7 +67,7 @@ exports.updateHouse = async (req, res) => {
             houseEdited.has_car_park = has_car_park
             houseEdited.number_of_floors = number_of_floors
             houseEdited.has_furniture = has_furniture
-            houseEdited.images = images
+            houseEdited.image_name = image_name
             houseEdited.description = description
             houseEdited.added_by = added_by
             await houseEdited.save()

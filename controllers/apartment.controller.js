@@ -8,12 +8,12 @@ exports.addApartment = async (req, res) => {
     try {
         const { property_type, add_type, rent_type, region, city,
             street_size, price, number_of_room, number_of_bathroom,
-            number_of_kitchen, floor_number, has_equipe, images,
+            number_of_kitchen, floor_number, has_equipe, image_name,
             description, added_by } = req.body;
         const newApartment = new Apartment({
             property_type, add_type, rent_type, region, city,
             street_size, price, number_of_room, number_of_bathroom,
-            number_of_kitchen, floor_number, has_equipe, images,
+            number_of_kitchen, floor_number, has_equipe, image_name,
             description, added_by
         })
         const savedApartment = await newApartment.save();
@@ -47,7 +47,7 @@ exports.updateApartment = async (req, res) => {
         const { id } = req.params.id
         const { property_type, add_type, rent_type, region, city,
             street_size, price, number_of_room, number_of_bathroom,
-            number_of_kitchen, floor_number, has_equipe, images,
+            number_of_kitchen, floor_number, has_equipe, image_name,
             description, added_by } = req.body;
 
         let apartmentEdited = await Apartment.findOne({ where: { id: req.params.id } })
@@ -64,7 +64,7 @@ exports.updateApartment = async (req, res) => {
             apartmentEdited.number_of_kitchen = number_of_kitchen
             apartmentEdited.floor_number = floor_number
             apartmentEdited.has_equipe = has_equipe
-            apartmentEdited.images = images
+            apartmentEdited.image_name = image_name
             apartmentEdited.description = description
             apartmentEdited.added_by = added_by
             await apartmentEdited.save()

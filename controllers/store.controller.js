@@ -3,11 +3,11 @@ const Store = require("../models/store.model");
 exports.addStore = async (req, res) => {
     try {
         const { property_type, add_type, rent_type, region, city,
-            street_size, price, length, width, images,
+            street_size, price, length, width, image_name,
             description, added_by } = req.body;
         const newStore = new Store({
             property_type, add_type, rent_type, region, city,
-            street_size, price, length, width, images,
+            street_size, price, length, width, image_name,
             description, added_by
         })
         const savedStore = await newStore.save();
@@ -41,7 +41,7 @@ exports.updateStore = async (req, res) => {
     try {
         const { id } = req.params.id
         const { property_type, add_type, rent_type, region, city,
-            street_size, price, length, width, images,
+            street_size, price, length, width, image_name,
             description, added_by } = req.body;
 
         let storeEdited = await Store.findOne({ where: { id: req.params.id } })
@@ -55,7 +55,7 @@ exports.updateStore = async (req, res) => {
             storeEdited.price = price
             storeEdited.length = length
             storeEdited.width = width
-            storeEdited.images = images
+            storeEdited.image_name = image_name
             storeEdited.description = description
             storeEdited.added_by = added_by
             await storeEdited.save()

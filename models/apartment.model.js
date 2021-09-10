@@ -52,7 +52,7 @@ const Apartment = db.define("apartment", {
         type: DataTypes.BOOLEAN,
         allowNull: true
     },
-    images: {
+    image_name: {
         type: DataTypes.STRING,
         allowNull: true
     },

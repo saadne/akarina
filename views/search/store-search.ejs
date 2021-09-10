@@ -8,13 +8,15 @@
             <div class="container">
                 <div class="row">
                     <div class="hero">
-                        <h1 class="hero-title">
-                            Search properties for sale and to rent in Mauritania
-                        </h1>
+                        <h1 class="heading hero-title">Bienvenue a
+                            Akarina </h1>
+                        <h3 class="hero-title">
+                            d&eacute;couvrez un endroit ou vous aimerez vivre
+                        </h3>
                         <div class="search">
                             <form class="search-form" action="/search" method="GET">
                                 <select class="form-select" name="property_type" aria-label="Default select example">
-                                    <option value="MAGAZIN" selected>MAGAZIN</option>
+                                    <option value="MAGASIN" selected>MAGASIN</option>
                                     <option value="MAISON">MAISON</option>
                                     <option value="APPARTEMENT">APPARTEMENT</option>
                                     <option value="TERRAIN">TERRAIN</option>
@@ -25,7 +27,7 @@
                                     <option value="VENDRE">VENDRE</option>
                                 </select>
                                 <select class="form-select" name="city" aria-label="Default select example">
-                                    <option value="TEVRAGHE ZEINA" selected>TEVRAGHE ZEINA</option>
+                                    <option value="TEVRAGHE ZEINA">TEVRAGHE ZEINA</option>
                                     <option value="KSAR">KSAR</option>
                                     <option value="TEYARITE">TEYARIT</option>
                                     <option value="ARAVAT">ARAVAT</option>
@@ -42,7 +44,8 @@
                     <% if (stores.length> 0) { %>
                         <% stores.forEach((store)=> { %>
                             <div class="col-lg-3 listing-card">
-                                <img class="listing-card-image image-size" src="../images/pexels-photo-259588.jpeg" />
+                                <img class="listing-card-image image-size"
+                                    src="../images/stores/<%=store.image_name%>" />
                                 <div class="listing-card-body my-2">
                                     <div class="my-2">
                                         <span class="listing-card-price"><strong>
@@ -82,7 +85,11 @@
                             </div>
                             <% })%>
                                 <%} else { %>
-                                    <p>ther are no propertys</p>
+                                    <div class="text-center my-5">
+
+                                        <h3>There are no property</h3>
+
+                                    </div>
                                     <% } %>
                 </div>
             </div>

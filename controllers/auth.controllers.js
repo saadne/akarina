@@ -53,5 +53,5 @@ exports.loginUser = async (req, res) => {
 
 exports.logout = (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 })
-    res.redirect('/')
+    res.redirect('/?page=1')
 }

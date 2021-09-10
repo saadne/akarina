@@ -6,14 +6,14 @@
     <body>
         <%- include('../partiels/nav.ejs')%>
             <div class="container">
-                <h1>Votre Properiet&eacute;</h1>
+                <h1 style="margin: 1rem 1rem 0 0 ; text-align:center;">Votre Propri&eacute;t&eacute;</h1>
                 <% if(houses.length> 0 || apartments.length> 0 || lands.length> 0 || stores.length> 0) { %>
                     <div class="row">
                         <% if (houses.length> 0) { %>
                             <% houses.forEach((house)=> { %>
                                 <div class="col-lg-3 listing-card">
                                     <img class="listing-card-image image-size"
-                                        src="../images/pexels-photo-259588.jpeg" />
+                                        src="../images/houses/<%=house.image_name%>" />
                                     <div class="listing-card-body my-2">
                                         <div class="my-2">
                                             <span class="listing-card-price"><strong>
@@ -60,7 +60,7 @@
                                         <% apartments.forEach((apartment)=> { %>
                                             <div class="col-lg-3 listing-card">
                                                 <img class="listing-card-image image-size"
-                                                    src="../images/pexels-photo-259588.jpeg" />
+                                                    src="../images/apartments/<%=apartment.image_name%>" />
                                                 <div class="listing-card-body my-2">
                                                     <div class="my-2">
                                                         <span class="listing-card-price"><strong>
@@ -108,7 +108,7 @@
                                                     <% lands.forEach((land)=> { %>
                                                         <div class="col-lg-3 listing-card">
                                                             <img class="listing-card-image image-size"
-                                                                src="../images/pexels-photo-259588.jpeg" />
+                                                                src="../images/lands/<%=land.image_name%>" />
                                                             <div class="listing-card-body my-2">
                                                                 <div class="my-2">
                                                                     <span class="listing-card-price"><strong>
@@ -158,7 +158,7 @@
 
                                                                     <div class="col-lg-3 listing-card">
                                                                         <img class="listing-card-image image-size"
-                                                                            src="../images/pexels-photo-259588.jpeg" />
+                                                                            src="../images/stores/<%=store.image_name%>" />
                                                                         <div class="listing-card-body my-2">
                                                                             <div class="my-2">
                                                                                 <span

@@ -5,170 +5,180 @@
     <body>
         <%- include('../partiels/nav.ejs')%>
             <div class="container">
-                <h1>Modifier TERRAIN</h1>
-                <div class="form">
-                    <form action="/lands/update-land/<%= land.id %>" method="post">
-                        <label for="">Type de properit&eacute;:</label>
-                        <select id="type" name="property_type" class="form-select" aria-label="Default select example">
-                            <option value="<%= land.property_type %>" selected>
-                                <%= land.property_type %>
-                            </option>
-                        </select>
-                        <label for="">Louer ou vendre:</label>
-                        <select class="form-select" name="add_type" aria-label="Default select example">
-                            <% if(land.add_type=="LOUER" ) { %>
-                                <option value="LOUER" selected>LOUER</option>
-                                <option value="VENDRE">VENDRE</option>
-                                <%} else { %>
-                                    <option value="VENDRE" selected>VENDRE</option>
-                                    <option value="LOUER">LOUER</option>
-                                    <% } %>
-                        </select>
-                        <label for="">Type de louer:</label>
-                        <select class="form-select" name="rent_type" aria-label="Default select example">
-                            <% if(land.rent_type=="PAR MOIS" ) { %>
-                                <option value="PAR MOIS" selected>PAR MOIS</option>
-                                <option value="PAR JOUR">PAR JOUR</option>
-                                <option value="PAR ANNEE">PAR ANNEE</option>
-                                <% } else if(land.rent_type=="PAR JOUR" ){ %>
-                                    <option value="PAR JOUR" selected>PAR JOUR</option>
-                                    <option value="PAR MOIS">PAR MOIS</option>
-                                    <option value="PAR ANNEE">PAR ANNEE</option>
-                                    <% }else{ %>
-                                        <option value="PAR ANNEE" selected>PAR ANNEE</option>
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3  ">
+                        <h1 style="text-align: center;">Modifier TERRAIN</h1>
+                        <div class="form">
+                            <form action="/lands/update-land/<%= land.id %>" method="post">
+                                <label for="">Type de properit&eacute;:</label>
+                                <select id="type" name="property_type" class="form-select"
+                                    aria-label="Default select example">
+                                    <option value="<%= land.property_type %>" selected>
+                                        <%= land.property_type %>
+                                    </option>
+                                </select>
+                                <label for="">Louer ou vendre:</label>
+                                <select class="form-select" name="add_type" aria-label="Default select example">
+                                    <% if(land.add_type=="LOUER" ) { %>
+                                        <option value="LOUER" selected>LOUER</option>
+                                        <option value="VENDRE">VENDRE</option>
+                                        <%} else { %>
+                                            <option value="VENDRE" selected>VENDRE</option>
+                                            <option value="LOUER">LOUER</option>
+                                            <% } %>
+                                </select>
+                                <label for="">Type de louer:</label>
+                                <select class="form-select" name="rent_type" aria-label="Default select example">
+                                    <% if(land.rent_type=="PAR MOIS" ) { %>
+                                        <option value="PAR MOIS" selected>PAR MOIS</option>
                                         <option value="PAR JOUR">PAR JOUR</option>
-                                        <option value="PAR MOIS">PAR MOIS</option>
+                                        <option value="PAR ANNEE">PAR ANNEE</option>
+                                        <% } else if(land.rent_type=="PAR JOUR" ){ %>
+                                            <option value="PAR JOUR" selected>PAR JOUR</option>
+                                            <option value="PAR MOIS">PAR MOIS</option>
+                                            <option value="PAR ANNEE">PAR ANNEE</option>
+                                            <% }else{ %>
+                                                <option value="PAR ANNEE" selected>PAR ANNEE</option>
+                                                <option value="PAR JOUR">PAR JOUR</option>
+                                                <option value="PAR MOIS">PAR MOIS</option>
 
-                                        <% } %>
-                        </select>
-                        <label for="">Location:</label>
-                        <select class="form-select" name="region" aria-label="Default select example">
-                            <% if(land.region=="NOUAKCHOTT OUEST" ) { %>
-                                <option value="NOUAKCHOTT OUEST" selected>NOUAKCHOTT OUEST</option>
-                                <option value="NOUAKCHOTT NORD">NOUAKCHOTT NORD</option>
-                                <option value="NOUAKCHOTT SID">NOUAKCHOTT SID</option>
-                                <% } else if(land.region=="NOUAKCHOTT SID" ){ %>
-                                    <option value="NOUAKCHOTT SID" selected>NOUAKCHOTT SID</option>
-                                    <option value="NOUAKCHOTT OUEST">NOUAKCHOTT OUEST</option>
-                                    <option value="NOUAKCHOTT NORD">NOUAKCHOTT NORD</option>
-                                    <% }else{ %>
-                                        <option value="NOUAKCHOTT NORD" selected>NOUAKCHOTT NORD</option>
-                                        <option value="NOUAKCHOTT SID"></option>NOUAKCHOTT SID</option>
-                                        <option value="NOUAKCHOTT OUEST">NOUAKCHOTT OUEST</option>
-                                        <% } %>
-                        </select>
-                        <label for="">Ville:</label>
-                        <select class="form-select" name="city" aria-label="Default select example">
+                                                <% } %>
+                                </select>
+                                <label for="">Location:</label>
+                                <select class="form-select" name="region" aria-label="Default select example">
+                                    <% if(land.region=="NOUAKCHOTT OUEST" ) { %>
+                                        <option value="NOUAKCHOTT OUEST" selected>NOUAKCHOTT OUEST</option>
+                                        <option value="NOUAKCHOTT NORD">NOUAKCHOTT NORD</option>
+                                        <option value="NOUAKCHOTT SID">NOUAKCHOTT SID</option>
+                                        <% } else if(land.region=="NOUAKCHOTT SID" ){ %>
+                                            <option value="NOUAKCHOTT SID" selected>NOUAKCHOTT SID</option>
+                                            <option value="NOUAKCHOTT OUEST">NOUAKCHOTT OUEST</option>
+                                            <option value="NOUAKCHOTT NORD">NOUAKCHOTT NORD</option>
+                                            <% }else{ %>
+                                                <option value="NOUAKCHOTT NORD" selected>NOUAKCHOTT NORD</option>
+                                                <option value="NOUAKCHOTT SID"></option>NOUAKCHOTT SID</option>
+                                                <option value="NOUAKCHOTT OUEST">NOUAKCHOTT OUEST</option>
+                                                <% } %>
+                                </select>
+                                <label for="">Ville:</label>
+                                <select class="form-select" name="city" aria-label="Default select example">
 
-                            <% if(land.city=='KSAR' ){ %>
-                                <option value="KSAR" selected>KSAR</option>
-                                <option value="TEVRAGHE ZEINA">TEVRAGHE ZEINA</option>
-                                <option value="TEYARITE">TEYARIT</option>
-                                <option value="ARAVAT">ARAVAT</option>
-                                <option value="TOUJOUNINE">TOUJOUNINE</option>
-                                <option value="ELMINA">ELMINA</option>
-
-                                <% }else if(land.city=='TEYARITE' ){%>
-                                    <option value="TEYARITE" selected>TEYARIT</option>
-                                    <option value="KSAR">KSAR</option>
-                                    <option value="TEVRAGHE ZEINA">TEVRAGHE ZEINA</option>
-                                    <option value="ARAVAT">ARAVAT</option>
-                                    <option value="TOUJOUNINE">TOUJOUNINE</option>
-                                    <option value="ELMINA">ELMINA</option>
-
-                                    <% }else if(land.city=='ARAVAT' ){%>
-                                        <option value="ARAVAT" selected>ARAVAT</option>
-                                        <option value="TEYARITE">TEYARIT</option>
-                                        <option value="KSAR">KSAR</option>
+                                    <% if(land.city=='KSAR' ){ %>
+                                        <option value="KSAR" selected>KSAR</option>
                                         <option value="TEVRAGHE ZEINA">TEVRAGHE ZEINA</option>
+                                        <option value="TEYARITE">TEYARIT</option>
+                                        <option value="ARAVAT">ARAVAT</option>
                                         <option value="TOUJOUNINE">TOUJOUNINE</option>
                                         <option value="ELMINA">ELMINA</option>
 
-                                        <% }else if(land.city=='TOUJOUNINE' ){%>
-                                            <option value="TOUJOUNINE" selected>TOUJOUNINE
-                                            </option>
-                                            <option value="ARAVAT" selected>ARAVAT</option>
-                                            <option value="TEYARITE">TEYARIT</option>
+                                        <% }else if(land.city=='TEYARITE' ){%>
+                                            <option value="TEYARITE" selected>TEYARIT</option>
                                             <option value="KSAR">KSAR</option>
-                                            <option value="TEVRAGHE ZEINA">TEVRAGHE ZEINA
-                                            </option>
+                                            <option value="TEVRAGHE ZEINA">TEVRAGHE ZEINA</option>
+                                            <option value="ARAVAT">ARAVAT</option>
+                                            <option value="TOUJOUNINE">TOUJOUNINE</option>
                                             <option value="ELMINA">ELMINA</option>
 
-                                            <%} else if(land.city=="ELMINA" ){%>
-                                                <option value="ELMINA" selected>ELMINA
-                                                </option>
-                                                <option value="ARAVAT" selected>ARAVAT
-                                                </option>
+                                            <% }else if(land.city=='ARAVAT' ){%>
+                                                <option value="ARAVAT" selected>ARAVAT</option>
                                                 <option value="TEYARITE">TEYARIT</option>
                                                 <option value="KSAR">KSAR</option>
-                                                <option value="TEVRAGHE ZEINA">TEVRAGHE
-                                                    ZEINA</option>
-                                                <option value="TOUJOUNINE">TOUJOUNINE
-                                                </option>
-                                                <% }else{ %>
-                                                    <option value="TEVRAGHE ZEINA" selected>
-                                                        TEVRAGHE ZEINA</option>
-                                                    <option value="KSAR">KSAR</option>
+                                                <option value="TEVRAGHE ZEINA">TEVRAGHE ZEINA</option>
+                                                <option value="TOUJOUNINE">TOUJOUNINE</option>
+                                                <option value="ELMINA">ELMINA</option>
+
+                                                <% }else if(land.city=='TOUJOUNINE' ){%>
+                                                    <option value="TOUJOUNINE" selected>TOUJOUNINE
+                                                    </option>
+                                                    <option value="ARAVAT" selected>ARAVAT</option>
                                                     <option value="TEYARITE">TEYARIT</option>
-                                                    <option value="ARAVAT">ARAVAT</option>
-                                                    <option value="TOUJOUNINE">TOUJOUNINE
+                                                    <option value="KSAR">KSAR</option>
+                                                    <option value="TEVRAGHE ZEINA">TEVRAGHE ZEINA
                                                     </option>
                                                     <option value="ELMINA">ELMINA</option>
-                                                    <% } %>
-                        </select>
-                        <label for="">Surface:</label>
-                        <div class="input-group flex-nowrap">
-                            <input type="number" value="<%= land.street_size %>" name="street_size" class="form-control"
-                                placeholder="Surface" aria-label="Surface" aria-describedby="addon-wrapping">
-                        </div>
-                        <label for="">Price:</label>
-                        <div class="input-group flex-nowrap">
-                            <input type="number" name="price" value="<%= land.price %>" class="form-control"
-                                placeholder="Prix" aria-label="Prix" aria-describedby="addon-wrapping">
-                        </div>
-                        <label for="">Longeur:</label>
-                        <div class="input-group flex-nowrap">
-                            <input type="number" class="form-control" value="<%= land.length %>" name="length"
-                                placeholder="Longeur" aria-label="Prix" aria-describedby="addon-wrapping">
-                        </div>
-                        <label for="">Largeur:</label>
-                        <div class="input-group flex-nowrap">
-                            <input type="number" name="width" value="<%= land.width %>" class="form-control"
-                                placeholder="Largeur" aria-label="nbr_toillet" aria-describedby="addon-wrapping">
-                        </div>
-                        <% if(land.is_title){ %>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="<%= land.is_title %>"
-                                    name="has_furniture" id="flexCheckIndeterminate" <%if (land.is_title){ %>
-                                checked
-                                <% }else %> >
-                                    <label class="form-check-label" for="flexCheckIndeterminate">
-                                        Avec Titre
-                                    </label>
-                            </div>
-                            <% } %>
-                                <label for="">Papier:</label>
-                                <div class="form-floating">
-                                    <textarea class="form-control" name="papier" placeholder="Leave a comment here"
-                                        id="floatingTextarea2" style="height: 100px"> <%= land.papier %></textarea>
-                                    <label for="floatingTextarea2">Papier</label>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="formFileSm" class="form-label">Images:</label>
-                                    <input class="form-control form-control-sm" value="<% land.images %> " name="images"
-                                        id="formFileSm" type="file">
-                                </div>
-                                <label for="">Description:</label>
-                                <div class="form-floating">
-                                    <textarea class="form-control" name="description" placeholder="Leave a comment here"
-                                        id="floatingTextarea2" style="height: 100px"><%= land.description %></textarea>
-                                    <label for="floatingTextarea2">Description</label>
-                                </div>
+
+                                                    <%} else if(land.city=="ELMINA" ){%>
+                                                        <option value="ELMINA" selected>ELMINA
+                                                        </option>
+                                                        <option value="ARAVAT" selected>ARAVAT
+                                                        </option>
+                                                        <option value="TEYARITE">TEYARIT</option>
+                                                        <option value="KSAR">KSAR</option>
+                                                        <option value="TEVRAGHE ZEINA">TEVRAGHE
+                                                            ZEINA</option>
+                                                        <option value="TOUJOUNINE">TOUJOUNINE
+                                                        </option>
+                                                        <% }else{ %>
+                                                            <option value="TEVRAGHE ZEINA" selected>
+                                                                TEVRAGHE ZEINA</option>
+                                                            <option value="KSAR">KSAR</option>
+                                                            <option value="TEYARITE">TEYARIT</option>
+                                                            <option value="ARAVAT">ARAVAT</option>
+                                                            <option value="TOUJOUNINE">TOUJOUNINE
+                                                            </option>
+                                                            <option value="ELMINA">ELMINA</option>
+                                                            <% } %>
+                                </select>
+                                <label for="">Surface:</label>
                                 <div class="input-group flex-nowrap">
-                                    <input type="hidden" name="added_by" value="<%= user.id %>" class="form-control">
+                                    <input type="number" value="<%= land.street_size %>" name="street_size"
+                                        class="form-control" placeholder="Surface" aria-label="Surface"
+                                        aria-describedby="addon-wrapping">
                                 </div>
-                                <button type="submit" class="btn btn-primary mt-3">Modifier</button>
-                    </form>
+                                <label for="">Price:</label>
+                                <div class="input-group flex-nowrap">
+                                    <input type="number" name="price" value="<%= land.price %>" class="form-control"
+                                        placeholder="Prix" aria-label="Prix" aria-describedby="addon-wrapping">
+                                </div>
+                                <label for="">Longeur:</label>
+                                <div class="input-group flex-nowrap">
+                                    <input type="number" class="form-control" value="<%= land.length %>" name="length"
+                                        placeholder="Longeur" aria-label="Prix" aria-describedby="addon-wrapping">
+                                </div>
+                                <label for="">Largeur:</label>
+                                <div class="input-group flex-nowrap">
+                                    <input type="number" name="width" value="<%= land.width %>" class="form-control"
+                                        placeholder="Largeur" aria-label="nbr_toillet"
+                                        aria-describedby="addon-wrapping">
+                                </div>
+                                <% if(land.is_title){ %>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="<%= land.is_title %>"
+                                            name="has_furniture" id="flexCheckIndeterminate" <%if (land.is_title){ %>
+                                        checked
+                                        <% }else %> >
+                                            <label class="form-check-label" for="flexCheckIndeterminate">
+                                                Avec Titre
+                                            </label>
+                                    </div>
+                                    <% } %>
+                                        <label for="">Papier:</label>
+                                        <div class="form-floating">
+                                            <textarea class="form-control" name="papier"
+                                                placeholder="Leave a comment here" id="floatingTextarea2"
+                                                style="height: 100px"> <%= land.papier %></textarea>
+                                            <label for="floatingTextarea2">Papier</label>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formFileSm" class="form-label">Images:</label>
+                                            <input class="form-control form-control-sm" value="<% land.image_name %> "
+                                                name="image_name" id="formFileSm" type="file">
+                                        </div>
+                                        <label for="">Description:</label>
+                                        <div class="form-floating">
+                                            <textarea class="form-control" name="description"
+                                                placeholder="Leave a comment here" id="floatingTextarea2"
+                                                style="height: 100px"><%= land.description %></textarea>
+                                            <label for="floatingTextarea2">Description</label>
+                                        </div>
+                                        <div class="input-group flex-nowrap">
+                                            <input type="hidden" name="added_by" value="<%= user.id %>"
+                                                class="form-control">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mt-3">Modifier</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
             <%- include('../partiels/footer.ejs')%>

@@ -67,7 +67,7 @@ router.get('/apartment/details/:id', async (req, res) => {
                 const user = await User.findByPk(decodedToken);
                 try {
                     let apartment = 0
-                    if (user.role == "admin") {
+                    if (user.role == 'admin') {
                         apartment = await Apartment.findOne({ where: { id: req.params.id } })
                     } else {
                         apartment = await Apartment.findOne({ where: { added_by: user.id, id: req.params.id } })
@@ -92,8 +92,8 @@ router.get('/land/details/:id', async (req, res) => {
                 const user = await User.findByPk(decodedToken);
                 try {
                     let land = 0
-                    if (user.role == "admin") {
-                        land = await Land.findOne({ where: { added_by: user.id, id: req.params.id } })
+                    if (user.role == 'admin') {
+                        land = await Land.findOne({ where: { id: req.params.id } })
                     } else {
                         land = await Land.findOne({ where: { added_by: user.id, id: req.params.id } })
                     }
@@ -118,10 +118,10 @@ router.get('/store/details/:id', async (req, res) => {
                 const user = await User.findByPk(decodedToken);
                 try {
                     let store = 0
-                    if (user.role == "admin") {
-                        store = await House.findOne({ where: { added_by: user.id, id: req.params.id } })
+                    if (user.role == 'admin') {
+                        store = await Store.findOne({ where: { id: req.params.id } })
                     } else {
-                        store = await House.findOne({ where: { added_by: user.id, id: req.params.id } })
+                        store = await Store.findOne({ where: { added_by: user.id, id: req.params.id } })
                     }
 
                     res.render('authentication/storeDetailsAuth', { title: "Store Details", store })

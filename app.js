@@ -8,14 +8,23 @@ const cookieParser = require('cookie-parser')
 const path = require('path')
 const { requireAuth, checkAuth, requireAuthAdmin } = require("./middleware/authMiddleware")
 
+const { I18n } = require('i18n')
 
 app.use(express.json());
 app.use(express.static(__dirname + '/public'));
 // app.use('/uploads', express.static('uploads'));
 app.set('view engine', 'ejs')
 app.use(cookieParser())
+const i18n = new I18n({
+    locales: ['en', 'de'],
+    directory: path.join(__dirname, 'locales')
+})
 
 // main routers
+app.get('/test', (req, res) => {
+    i18n.init(req, res)
+    res.end(res.__('Hello'))
+})
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.get('*', checkAuth)

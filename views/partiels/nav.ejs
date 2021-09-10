@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light ">
+<nav class="navbar  navbar-expand-lg navbar-light navbar-fixed-top ">
     <div class="container">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
             aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="/">Akarina</a>
+            <a class="navbar-brand" href="/?page=1">Akarina</a>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <% if(user) { %>
                     <li class="nav-item dropdown">
@@ -17,7 +17,7 @@
                             <a class="dropdown-item" href="/houses">Maison</a>
                             <a class="dropdown-item" href="/apartments">Appartement</a>
                             <a class="dropdown-item" href="lands">Terrain</a>
-                            <a class="dropdown-item" href="stores">Magazin</a>
+                            <a class="dropdown-item" href="stores">Magasin</a>
                         </div>
                     </li>
                     <% if(user.role=='admin' ) { %>

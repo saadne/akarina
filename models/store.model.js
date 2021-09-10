@@ -38,7 +38,7 @@ const Store = db.define("Store", {
         type: DataTypes.FLOAT,
         allowNull: false
     },
-    images: {
+    image_name: {
         type: DataTypes.STRING,
         allowNull: true
     },
