@@ -9,7 +9,7 @@
                     <div class="col-lg-6 offset-lg-3  ">
                         <h1 style="text-align: center; margin: 1rem ;">Ajouter Maison</h1>
                         <div class="form">
-                            <form method="POST" action="/houses">
+                            <form method="POST" action="/houses" enctype="multipart/form-data">
                                 <label for="">Type de propri&eacute;t&eacute;:</label>
                                 <select id="type" name="property_type" class="form-select"
                                     aria-label="Default select example">
@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFileSm" class="form-label">Images:</label>
-                                    <input type="file" class="form-control form-control-sm" name="image_name"
+                                    <input type="file" class="form-control form-control-sm" name="image"
                                         id="formFileSm">
                                 </div>
                                 <label for="">Description:</label>

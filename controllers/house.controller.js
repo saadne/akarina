@@ -8,17 +8,20 @@ const House = require("../models/house.model");
 //     allowedImage: imageMiddleware.image.allowedImage
 // }).single('image');
 
-// exports.test = upload
+// exports.test = upload 
+
 exports.addHouse = async (req, res) => {
     try {
-        const { property_type, add_type, rent_type, region, city,
+        let { property_type, add_type, rent_type, region, city,
             street_size, price, number_of_room, number_of_bathroom,
-            number_of_floors, number_of_kitchen, has_car_park, has_furniture, image_name,
+            number_of_floors, number_of_kitchen, has_car_park, has_furniture, image,
             description, added_by } = req.body;
+            
+
         const newHouse = await new House({
             property_type, add_type, rent_type, region, city, street_size, price,
             number_of_room, number_of_bathroom, number_of_kitchen,
-            has_car_park, number_of_floors, has_furniture, image_name, description, added_by,
+            has_car_park, number_of_floors, has_furniture, image_name:req.file.path, description, added_by,
         })
         const savedHouse = await newHouse.save();
         if (savedHouse) {
